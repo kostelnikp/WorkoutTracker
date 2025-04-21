@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Exercise {
+  id          Int           @id @default(autoincrement())
+  name        String // názov cviku, napr. "Bench Press"
+  description String? // voliteľne: popis cviku
+  muscleGroup String? // voliteľne: cieľová svalová skupina
+  logs        ExerciseLog[] // prepojenie na záznamy vykonaných cvikov
+}
+
+model Workout {
+  id        Int           @id @default(autoincrement())
+  name      String // názov tréningu, napr. "Dnesný tréning"
+  date      DateTime // dátum a čas tréningu
+  duration  Float? // trvanie tréningu v minútach
+  volume    Float? // celkový objem tréningu (počet sérií * počet opakovaní)
+  totalSets Int? // celkový počet sérií
+  note      String? // poznámky k tréningu
+  logs      ExerciseLog[] // záznamy jednotlivých cvikov v danom tréningu
+  createdAt DateTime      @default(now())
+}
+
+model ExerciseLog {
+  id         Int    @id @default(autoincrement())
+  workoutId  Int // odkaz na tréning
+  exerciseId Int // odkaz na cvik
+  sets       Int // počet sérií
+  reps       Int // počet opakovaní v sérii
+  weight     Float? // použitá váha
+  note      String? // poznámka k cviku
+
+  workout  Workout  @relation(fields: [workoutId], references: [id])
+  exercise Exercise @relation(fields: [exerciseId], references: [id])
+}
