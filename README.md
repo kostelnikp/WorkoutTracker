@@ -2,7 +2,7 @@
 
 Jednoduchá aplikácia na sledovanie tréningov, postavená ako SPA v Reacte a REST API pomocou Node.js a Expressu.
 
-## 📁 Struktúra projektu
+## 📁 Štruktúra projektu
 
 - `React SPA application/` – frontendová aplikácia v Reacte
 - `NodeJS Express Server/` – backendová REST API aplikácia
