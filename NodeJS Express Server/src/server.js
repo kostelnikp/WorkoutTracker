@@ -194,7 +194,7 @@ app.get("/workouts/:workoutId", async (req, res) => {
       include: {
         logs: {
           include: {
-            exercise: true // Include the exercise details for each log
+            exercise: true
           }
         }
       }
@@ -236,13 +236,11 @@ app.put("/workouts/:workoutId", async (req, res) => {
           where: { workoutId }
         });
         
-        // Delete existing logs that are not in the updated list
-        // This is needed as we're replacing all exercise logs
+  
         await tx.exerciseLog.deleteMany({
           where: { workoutId }
         });
         
-        // Create new exercise logs
         await tx.exerciseLog.createMany({
           data: exercises.map(ex => ({
             workoutId,
@@ -255,7 +253,6 @@ app.put("/workouts/:workoutId", async (req, res) => {
         });
       }
 
-      // Return the updated workout with its logs
       return tx.workout.findUnique({
         where: { id: workoutId },
         include: {
@@ -281,10 +278,20 @@ app.put("/workouts/:workoutId", async (req, res) => {
 // Delete specific workout
 app.delete("/workouts/:workoutId", async (req, res) => {
   try {
-    const deletedWorkout = await prisma.workout.delete({
-      where: {
-        id: parseInt(req.params.workoutId),
-      },
+    const workoutId = parseInt(req.params.workoutId);
+    
+    const deletedWorkout = await prisma.$transaction(async (tx) => {
+      await tx.exerciseLog.deleteMany({
+        where: {
+          workoutId: workoutId
+        }
+      });
+      
+      return tx.workout.delete({
+        where: {
+          id: workoutId
+        }
+      });
     });
 
     if (deletedWorkout) res.status(200).json(deletedWorkout);

@@ -57,23 +57,18 @@ export default function WorkoutForm() {
   });
 
   React.useEffect(() => {
+    // Nastavení výchozího cviku, pokud je k dispozici a žádný není vybraný
     if (exercises.length > 0 && !selectedExercise) {
       setSelectedExercise(exercises[0].id);
     }
 
-    if (workout?.exercises) {
-      const enrichedExercises = workout.exercises.map((ex) => {
-        const exerciseData =
-          exercises.find((e) => e.id === ex.exerciseId) || {};
-        return {
-          ...ex,
-          exerciseName: exerciseData.name || "Unknown Exercise",
-        };
-      });
-
-      setWorkoutExercises(enrichedExercises);
+    // Inicializace dat pouze při prvním načtení nebo při editaci workoutu
+    if (isEditMode && workout?.logs && workout.logs.length > 0 && workoutExercises.length === 0) {
+      // V editačním režimu použijeme workout.logs
+      setWorkoutExercises(workout.logs);
     }
-  }, [exercises, selectedExercise, workout]);
+    // Pro nově přidané workouty necháme aktuální workoutExercises beze změny
+  }, [exercises, workout, isEditMode, selectedExercise, workoutExercises.length]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

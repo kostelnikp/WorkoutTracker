@@ -37,8 +37,6 @@ export default function Exercises() {
   const submit = useSubmit();
   const { accentColor } = useOutletContext();
 
-
-
   const handleDeleteClick = (exercise) => {
     setExerciseToDelete(exercise);
     setDeleteDialogOpen(true);

@@ -43,8 +43,6 @@ export default function Workouts() {
   const submit = useSubmit();
   const { accentColor } = useOutletContext();
 
- 
-
   const handleDeleteClick = (workout) => {
     setWorkoutToDelete(workout);
     setDeleteDialogOpen(true);
@@ -141,7 +139,6 @@ export default function Workouts() {
                         color="primary"
                         component={Link}
                         to={`/workouts/${workout.id}/edit`}
-
                         sx={{ mr: 1 }}
                       >
                         <EditIcon />

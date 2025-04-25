@@ -7,7 +7,21 @@ export default function PageNotFound() {
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper elevation={3} sx={{ borderRadius: 4, p: 4, mb: 4, bgcolor: "#f9f9f9", textAlign: "center", height: "50vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
+      <Paper
+        elevation={3}
+        sx={{
+          borderRadius: 4,
+          p: 4,
+          mb: 4,
+          bgcolor: "#f9f9f9",
+          textAlign: "center",
+          height: "50vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="h3" sx={{ mb: 2, color: "#ef5350" }}>
           404
         </Typography>
@@ -17,12 +31,11 @@ export default function PageNotFound() {
         <Typography variant="body1" sx={{ mb: 4, color: "#777" }}>
           The page you are looking for does not exist or has been moved.
         </Typography>
-        <Button 
-          variant="contained" 
-            component={Link}
-            to="/"
-          sx={{ mt: 2, bgcolor: accentColor}}
-
+        <Button
+          variant="contained"
+          component={Link}
+          to="/"
+          sx={{ mt: 2, bgcolor: accentColor }}
         >
           Go to Home
         </Button>

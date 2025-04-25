@@ -7,7 +7,6 @@ export default function ListWithActions(props) {
   const { type } = props;
   const title = type.charAt(0).toUpperCase() + type.slice(1) + "s";
 
- 
   return (
     <Box
       sx={{
