@@ -14,8 +14,8 @@ Jednoduchá aplikácia na sledovanie tréningov, postavená ako SPA v Reacte a R
 ### 1. Klonovanie repozitára
 
 ```bash
-git clone https://github.com/vsb-vaj/2025s-project-kos0378.git
-cd 2025s-project-kos0378
+git clone https://github.com/kostelnikp/WorkoutTracker.git
+cd WorkoutTracker
 
 ```
 
