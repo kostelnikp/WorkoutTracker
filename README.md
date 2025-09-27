@@ -88,3 +88,12 @@ The frontend runs at `http://localhost:5173/` (by default using Vite).
 ## 🔗 API Communication
 
 The frontend communicates with the backend REST API. Make sure both servers are running simultaneously.
+
+### Homepage
+![Homepage](/Screenshots/Homepage.jpg?raw=true "Homepage")
+
+### Exercises
+![Exercise](/Screenshots/Exersise.jpg?raw=true "Exercise")
+
+### Workouts
+![Workout](/Screenshots/Workout.jpg?raw=true "Workout")
