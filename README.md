@@ -1,89 +1,90 @@
 # 🏋️ WorkoutTracker
 
-Jednoduchá aplikácia na sledovanie tréningov, postavená ako SPA v Reacte a REST API pomocou Node.js a Expressu.
+A simple application for tracking workouts, built as a SPA in React and a REST API using Node.js and Express.
 
-## 📁 Štruktúra projektu
+## 📁 Project Structure
 
-- `React SPA application/` – frontendová aplikácia v Reacte
-- `NodeJS Express Server/` – backendová REST API aplikácia
+- `React SPA application/` – frontend application in React
+- `NodeJS Express Server/` – backend REST API application
 
 ---
 
-## 🧑‍💻 Spustenie projektu
+## 🧑‍💻 Running the Project
 
-### 1. Klonovanie repozitára
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/kostelnikp/WorkoutTracker.git
 cd WorkoutTracker
 
+
 ```
 
 ---
 
-### 2. Spustenie backendu (NodeJS Express Server)
+### 2. Run the backend (NodeJS Express Server)
 
-#### a) Prejdi do zložky servera:
+#### a) Navigate to the server folder:
 
 ```bash
 cd "NodeJS Express Server"
 ```
 
-#### b) Inštaluj závislosti:
+#### b) Install dependencies:
 
 ```bash
 npm install
 ```
 
-#### c) Vytvor súbor .env
+#### c) Create the .env file
 
-Aplikácia potrebuje súbor `.env` s prístupovými údajmi k databáze. Po stiahnutí projektu z GitHubu je potrebné:
+The application requires a .env file with database connection details. After cloning the project from GitHub:
 
-1. Vytvor súbor s názvom `.env` v priečinku `NodeJS Express Server`
-2. Skopíruj do neho obsah zo súboru `.env.example` 
-3. Pre lokálnu SQLite databázu použi: `DATABASE_URL="file:./dev.db"`
+1. Create a file named `.env` in the `NodeJS Express Server` folder
+2. Copy the content from `.env.example` into this file
+3. For a local SQLite database, use: `DATABASE_URL="file:./dev.db"`
 
 
-#### d) Generuj Prisma klienta:
+#### d) Generate Prisma client:
 
 ```bash
 npx prisma generate
 ```
 
-#### e) Spusti server (vývojový mód):
+#### e) Start the server (development mode):
 
 ```bash
 npm run dev
 ```
 
-Server beží na adrese `http://localhost:3000/` (ak nie je zmenené).
+The server runs at `http://localhost:3000/` (unless changed).
 
 ---
 
-### 3. Spustenie frontendovej aplikácie (React SPA)
+### 3. Run the frontend (React SPA)
 
-#### a) Prejdi do zložky React aplikácie:
+#### a) Navigate to the React application folder:
 
 ```bash
 cd "../React SPA application"
 ```
 
-#### b) Inštaluj závislosti:
+#### b) Install dependencies:
 
 ```bash
 npm install
 ```
 
-#### c) Spusti vývojový server:
+#### c) Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Frontend beží na adrese `http://localhost:5173/` (štandardne cez Vite).
+The frontend runs at `http://localhost:5173/` (by default using Vite).
 
 ---
 
-## 🔗 API komunikácia
+## 🔗 API Communication
 
-Frontend komunikuje s REST API backendom. Uisti sa, že oba servery bežia súčasne.
+The frontend communicates with the backend REST API. Make sure both servers are running simultaneously.
