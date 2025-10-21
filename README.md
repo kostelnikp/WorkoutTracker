@@ -1,15 +1,15 @@
-# 🏋️ WorkoutTracker
+#  WorkoutTracker
 
 A simple application for tracking workouts, built as a SPA in React and a REST API using Node.js and Express.
 
-## 📁 Project Structure
+##  Project Structure
 
 - `React SPA application/` – frontend application in React
 - `NodeJS Express Server/` – backend REST API application
 
 ---
 
-## 🧑‍💻 Running the Project
+##  Running the Project
 
 ### 1. Clone the repository
 
@@ -85,11 +85,11 @@ The frontend runs at `http://localhost:5173/` (by default using Vite).
 
 ---
 
-## 🔗 API Communication
+##  API Communication
 
 The frontend communicates with the backend REST API. Make sure both servers are running simultaneously.
 
-## 📸 API Communication
+##  Screenshots
 
 ### Homepage
 ![Homepage](/Screenshots/Homepage.jpg?raw=true "Homepage")
